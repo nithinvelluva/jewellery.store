@@ -21,7 +21,7 @@ namespace Jewellery.Store.Services
 
         public PriceCalculatorResponse CalculatePrice(PriceRequest request)
         {
-            AbstractPriceCreateArg arg = new AbstractPriceCreateArg { UserType = (UserTypeEnum) request.UserType };
+            AbstractPriceCreateArg arg = new AbstractPriceCreateArg { UserType = (UserTypeEnum) request.UserType , PriceCalculatorService = this };
             var priceProduct = _priceFactory.Create(arg);
             return priceProduct.Product.CalculatePrice(request);
         }

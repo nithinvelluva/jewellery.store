@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Jewellery.Store.Services.PriceCalculatorHelpers
 {
-    public abstract class PriceCalculatorFactory : AbstractPriceFactory, IPriceFactory
+    public class PriceCalculatorFactory : AbstractPriceFactory, IPriceFactory
     {
         private IDictionary<UserTypeEnum, Type> _userTypeDictionary;
         public PriceCalculatorFactory()
@@ -30,7 +30,7 @@ namespace Jewellery.Store.Services.PriceCalculatorHelpers
 
             return new AbstractPriceCreateResponse
             {
-                Product = (PriceProduct)Activator.CreateInstance(type)
+                Product = (PriceProduct)Activator.CreateInstance(type, arg.PriceCalculatorService)
             };
         }
     }

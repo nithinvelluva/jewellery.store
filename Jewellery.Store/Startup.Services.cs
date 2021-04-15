@@ -14,7 +14,7 @@ namespace Jewellery.Store
             services.AddScoped<IPriceCalculatorService, PriceCalculatorService>();
 
             // Register codecs
-            services.AddScoped<PriceCalculatorFactory>();
+            services.AddScoped<IPriceFactory,PriceCalculatorFactory>();
             services.AddScoped<IUserMapper, UserMapper>();
         }
     }

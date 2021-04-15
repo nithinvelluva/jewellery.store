@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Jewellery.Store.ViewModels.Models;
+﻿using Jewellery.Store.ViewModels.Models;
 using Jewellery.Store.Services;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Jewellery.Store.Controllers
