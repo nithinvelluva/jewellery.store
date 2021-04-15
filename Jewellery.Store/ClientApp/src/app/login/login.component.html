@@ -1,0 +1,24 @@
+<div class="col-md-6">
+<div class="card">
+    <div class="card-body">
+        <div class="row form-group">
+        <div class="col-md-10">
+      <label for="usernameinput">Username</label>
+      <input type="text" class="form-control" maxlength="1000" [(ngModel)]='Credential.Username' required 
+      id="usernameinput" placeholder="Enter your username">
+    </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-10">
+      <label for="passwordinput">Password</label>
+      <input id="passwordinput" type="password" class="form-control" maxlength="1000" [(ngModel)]='Credential.Password' 
+      required placeholder="Enter your password">
+    </div>
+    </div>
+    <br />
+    <input type="button" class="btn btn-primary" value="Login" (click)="signIn()">
+    <input type="button" class="btn btn-secondary margin-5" value="Cancel">
+</div>
+</div>
+  </div>
+  

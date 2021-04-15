@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="AppointmentViewModel.cs" />
+    <Compile Remove="Mappers\AppointmentMapper.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Jewellery.Sore.DAL\Jewellery.Sore.DAL.csproj" />
+  </ItemGroup>
+
+</Project>

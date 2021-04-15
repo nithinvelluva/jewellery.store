@@ -1,0 +1,105 @@
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-body">
+      <div class="form-group row">
+        <div class="col-sm-5"></div>
+        <label for="inputGoldPrice" class="col-sm-7 col-form-label right-allign">Welcome:&nbsp;{{userTypeDescription}}</label>
+      </div>
+      <div class="form-group row">
+        <label for="inputGoldPrice" class="col-sm-3 col-form-label">Gold Price (per gram)</label>
+        <div class="col-sm-6">
+          <input type="number" class="form-control" id="inputGoldPrice" placeholder="Gold Price (per gram)" required
+                 [(ngModel)]='priceRequest.GoldPrice' min="0" max="1000000">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputweight" class="col-sm-3 col-form-label">Weight (grams)</label>
+        <div class="col-sm-6">
+          <input type="number" class="form-control" id="inputweight" placeholder="Weight (grams)" required
+                 [(ngModel)]='priceRequest.Weight' min="0" max="1000000">
+        </div>
+      </div>
+      <br />
+      <div class="form-group row">
+        <label for="inputprice" class="col-sm-3 col-form-label">Total Price</label>
+        <div class="col-sm-6">
+
+          <input type="number" class="form-control" id="inputprice" placeholder="Total Price" readonly
+                 [(ngModel)]='priceResult.TotalPrice'>
+
+          <br />
+          <div class="form-group row" *ngIf="discountApplicable">
+            <label for="inputDiscount" class="col-sm-4 col-form-label">Discount % </label>
+            <div class="col-sm-6">
+              <input type="number" class="form-control" id="inputDiscount" readonly placeholder="Discount %"
+                     [(ngModel)]='priceRequest.Discount'>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <br />
+
+      <button type="button" class="btn btn-success margin-5" (click)="calculatePrice()">
+        <i class="fa fa-calculator" aria-hidden="true"></i>&nbsp;Calculate
+      </button>
+      <button type="button" class="btn btn-primary margin-5" (click)="triggerModal(content)">
+        <i class="fa fa-external-link-square" aria-hidden="true"></i>&nbsp;Print to Screen
+      </button>
+
+      <button type="button" class="btn btn-primary margin-5" (click)="downloadAsPDF()">
+        <i class="fa fa-file-pdf-o" aria-hidden="true"></i>&nbsp;Print to File
+      </button>
+      <button type="button" class="btn btn-primary margin-5">
+        <i class="fa fa-print" aria-hidden="true"></i>&nbsp;Print to Paper
+      </button>
+
+      <div id="modalContent" #modalContent style="display: none;">
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">Jewellery Store</h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-group row">
+            <label for="inputweight" class="col-sm-6 col-form-label">Gold Price (per gram) : &nbsp;{{priceRequest.GoldPrice}}</label>
+          </div>
+          <div class="form-group row">
+            <label for="inputweight" class="col-sm-6 col-form-label">Weight (grams) : &nbsp;{{priceRequest.Weight}}</label>
+          </div>
+          <div class="form-group row">
+            <label for="inputweight" class="col-sm-6 col-form-label">Total Price : &nbsp;{{priceResult.TotalPrice}}</label>
+          </div>
+          <div class="form-group row" *ngIf="discountApplicable">
+            <label for="inputweight" class="col-sm-6 col-form-label">Discount  : &nbsp;{{priceRequest.Discount}}%</label>
+          </div>
+        </div>
+      </div>
+
+      <ng-template #content let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">Jewellery Store</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group row">
+            <label for="inputweight" class="col-sm-6 col-form-label">Gold Price (per gram) : &nbsp;{{priceRequest.GoldPrice}}</label>
+          </div>
+          <div class="form-group row">
+            <label for="inputweight" class="col-sm-6 col-form-label">Weight (grams) : &nbsp;{{priceRequest.Weight}}</label>
+          </div>
+          <div class="form-group row">
+            <label for="inputweight" class="col-sm-6 col-form-label">Total Price : &nbsp;{{priceResult.TotalPrice}}</label>
+          </div>
+          <div class="form-group row" *ngIf="discountApplicable">
+            <label for="inputweight" class="col-sm-6 col-form-label">Discount  : &nbsp;{{priceRequest.Discount}}%</label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" (click)="modal.close('Save click')">Close</button>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>

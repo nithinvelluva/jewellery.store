@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Entity\AppointmentEntity.cs" />
+    <Compile Remove="Entity\OwnerEntity.cs" />
+    <Compile Remove="Entity\PetEntity.cs" />
+    <Compile Remove="Repository\AppointmentRepository.cs" />
+    <Compile Remove="Repository\IAppointmentRepository.cs" />
+    <Compile Remove="Repository\IOwnerRepository.cs" />
+    <Compile Remove="Repository\IPetRepository.cs" />
+    <Compile Remove="Repository\OwnerRepository.cs" />
+    <Compile Remove="Repository\PetRepository.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.5" />
+  </ItemGroup>
+
+</Project>

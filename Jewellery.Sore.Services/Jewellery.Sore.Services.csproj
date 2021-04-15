@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="AppointmentService.cs" />
+    <Compile Remove="IAppointmentService.cs" />
+    <Compile Remove="IPetOwnerService.cs" />
+    <Compile Remove="PetOwnerService.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Jewellery.Sore.DAL\Jewellery.Sore.DAL.csproj" />
+    <ProjectReference Include="..\Jewellery.Sore.ViewModels\Jewellery.Sore.ViewModels.csproj" />
+  </ItemGroup>
+
+</Project>

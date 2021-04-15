@@ -1,0 +1,17 @@
+<div class="container">
+
+  <div class="row">
+    <label>UserName</label>
+    <input type="text" class="form-control" maxlength="1000" [(ngModel)]='Credential.UserName' required>
+  </div>
+  <div class="row">
+    <label>Password</label>
+    <input type="password" class="form-control" maxlength="1000" [(ngModel)]='Credential.Password' required>
+  </div>
+  <br />
+  <div class="row">
+    <div class="pull-right">
+      <input type="button" class="btn btn-primary" value="Login" (click)="signIn()">
+    </div>
+  </div>
+</div>

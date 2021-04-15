@@ -1,0 +1,15 @@
+C:\projects\Jewellery.Sore.DAL\bin\Debug\netcoreapp3.1\Jewellery.Sore.DAL.deps.json
+C:\projects\Jewellery.Sore.DAL\bin\Debug\netcoreapp3.1\Jewellery.Sore.DAL.dll
+C:\projects\Jewellery.Sore.DAL\bin\Debug\netcoreapp3.1\Jewellery.Sore.DAL.pdb
+C:\projects\Jewellery.Sore.DAL\obj\Debug\netcoreapp3.1\Jewellery.Sore.DAL.AssemblyInfoInputs.cache
+C:\projects\Jewellery.Sore.DAL\obj\Debug\netcoreapp3.1\Jewellery.Sore.DAL.AssemblyInfo.cs
+C:\projects\Jewellery.Sore.DAL\obj\Debug\netcoreapp3.1\Jewellery.Sore.DAL.dll
+C:\projects\Jewellery.Sore.DAL\obj\Debug\netcoreapp3.1\Jewellery.Sore.DAL.pdb
+C:\Projects\Jewellery.Sore.DAL\obj\Debug\netcoreapp3.1\Jewellery.Sore.DAL.csproj.CoreCompileInputs.cache
+C:\interview\JewelleryStore\Jewellery.Sore.DAL\bin\Debug\netcoreapp3.1\Jewellery.Sore.DAL.deps.json
+C:\interview\JewelleryStore\Jewellery.Sore.DAL\bin\Debug\netcoreapp3.1\Jewellery.Sore.DAL.dll
+C:\interview\JewelleryStore\Jewellery.Sore.DAL\bin\Debug\netcoreapp3.1\Jewellery.Sore.DAL.pdb
+C:\interview\JewelleryStore\Jewellery.Sore.DAL\obj\Debug\netcoreapp3.1\Jewellery.Sore.DAL.AssemblyInfoInputs.cache
+C:\interview\JewelleryStore\Jewellery.Sore.DAL\obj\Debug\netcoreapp3.1\Jewellery.Sore.DAL.AssemblyInfo.cs
+C:\interview\JewelleryStore\Jewellery.Sore.DAL\obj\Debug\netcoreapp3.1\Jewellery.Sore.DAL.dll
+C:\interview\JewelleryStore\Jewellery.Sore.DAL\obj\Debug\netcoreapp3.1\Jewellery.Sore.DAL.pdb
