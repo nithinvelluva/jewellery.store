@@ -15,6 +15,8 @@
       required placeholder="Enter your password">
     </div>
     </div>
+    <div *ngIf="hasRequiredErrors" class='alert alert-danger'>Enter Credentials</div>
+    <div *ngIf="hasValidationErrors" class='alert alert-danger'>Invalid Credentials</div>
     <br />
     <input type="button" class="btn btn-primary" value="Login" (click)="signIn()">
     <input type="button" class="btn btn-secondary margin-5" value="Cancel">

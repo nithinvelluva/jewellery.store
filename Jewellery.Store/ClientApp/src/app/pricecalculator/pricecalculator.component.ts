@@ -38,9 +38,9 @@ export class PricecalculatorComponent implements OnInit {
     this.priceResult = new PriceResult();
     
     var user = JSON.parse(this._localStorageService.getItem(this.localStorageUserKey));
-    console.log('from localstorage' ,user);
-    debugger;
+    console.log('from localstorage' ,user);    
     this._loginService.getUserInfo(user.id).subscribe((data: any) => {
+      this.priceRequest.UserType = data.userTypeId;
       this.userTypeDescription = data.userType.type;
       this.discountApplicable = data.userTypeId === 2;
       if(this.discountApplicable){
@@ -55,8 +55,9 @@ export class PricecalculatorComponent implements OnInit {
   calculatePrice(){
     this._calculatorService.calculatePrice(this.priceRequest).subscribe((data: any) => {
       console.log(data);
+      this.priceResult.TotalPrice = data.totalPrice;
     });
-  }
+  } 
 
   public downloadAsPDF() {
     const doc = new jsPDF();

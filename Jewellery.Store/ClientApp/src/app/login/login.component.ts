@@ -13,6 +13,8 @@ import { LocalStorageService } from '../services/local-storage/local-storage.ser
 export class LoginComponent implements OnInit {
   Credential: CredentialsRequest;
   localStorageUserKey="user";
+  hasValidationErrors:boolean;
+  hasRequiredErrors: boolean;
   constructor(private _localStorageService: LocalStorageService,private router: Router, private route: ActivatedRoute,
     private _loginService:LoginService) {
     this.Credential = new CredentialsRequest();
@@ -24,15 +26,27 @@ export class LoginComponent implements OnInit {
   }
 
   signIn() {
-    var credentialsRequest = new CredentialsRequest();
-    credentialsRequest.Username = this.Credential.Username;
-    credentialsRequest.Password = this.Credential.Password;
-
-    this._loginService.signIn(credentialsRequest).subscribe((data: any) => {      
-      console.log('from service' ,data);
-      this._localStorageService.setItem('user',JSON.stringify(data));
-      this._loginService.setLoggedIn = true;
-      this.router.navigate(['/']);
-    });
+    this.hasValidationErrors = false;
+    this.hasRequiredErrors = false;
+    if(this.Credential.Username && this.Credential.Password){
+      var credentialsRequest = new CredentialsRequest();
+      credentialsRequest.Username = this.Credential.Username;
+      credentialsRequest.Password = this.Credential.Password;
+  
+      this._loginService.signIn(credentialsRequest).subscribe((data: any) => {      
+        console.log('from service' ,data);
+        if(data){
+          this._localStorageService.setItem('user',JSON.stringify(data));
+          this._loginService.setLoggedIn = true;
+          this.router.navigate(['/']);
+        }
+        else{
+          this.hasValidationErrors = true;
+        }
+      });
+    }
+    else{
+      this.hasRequiredErrors = true;
+    }    
   }  
 }
