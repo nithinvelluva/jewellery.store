@@ -1,7 +1,6 @@
 using Jewellery.Store.ViewModels.Models;
 using Jewellery.Store.DAL.Repository;
 using Jewellery.Store.Services.PriceCalculatorHelpers;
-using Jewellery.Store.ViewModels.Mapper;
 using Jewellery.Store.ViewModels.Models.Enums;
 
 namespace Jewellery.Store.Services
@@ -21,16 +20,21 @@ namespace Jewellery.Store.Services
 
         public PriceCalculatorResponse CalculatePrice(PriceRequest request)
         {
-            AbstractPriceCreateArg arg = new AbstractPriceCreateArg { UserType = (UserTypeEnum) request.UserType , PriceCalculatorService = this };
-            var priceProduct = _priceFactory.Create(arg);
-            return priceProduct.Product.CalculatePrice(request);
+            PriceCalculatorResponse response = null;
+            if (request != null)
+            {
+                AbstractPriceCreateArg arg = new AbstractPriceCreateArg { UserType = (UserTypeEnum)request.UserType, PriceCalculatorService = this };
+                var priceProduct = _priceFactory.Create(arg);
+                response = priceProduct.Product.CalculatePrice(request);
+            }
+            return response;
         }
 
-        public DiscountViewModel GetDiscount(long userId)
+        public DiscountViewModel GetDiscount(long userType)
         {
             return new DiscountViewModel
             {
-                Discount = _priceCalculatorRepository.GetDiscount(userId)
+                Discount = _priceCalculatorRepository.GetDiscount(userType)
             };
         }
     }

@@ -1,10 +1,10 @@
-using Jewellery.Store.ViewModels.Models;
+using Jewellery.Store.DAL.Entity;
 
 namespace Jewellery.Store.Services
 {
     public interface ILoginService
     {
-        UserViewModel LoginAsync(CredentialsViewModel credentials);
-        UserViewModel GetUserInfo(int userid);
+        UserEntity LoginAsync(CredentialsViewModel credentials);
+        UserEntity GetUserInfo(int userid);
     }
 }

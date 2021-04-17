@@ -1,36 +1,31 @@
+using Jewellery.Store.DAL.Entity;
 using Jewellery.Store.DAL.Repository;
-using Jewellery.Store.ViewModels.Mapper;
-using Jewellery.Store.ViewModels.Models;
 
 namespace Jewellery.Store.Services
 {
     public class LoginService : ILoginService
     {
-        private readonly IUserMapper _userMapper;
         private readonly ILoginRepository _loginRepository;
 
         public LoginService(
-        IUserMapper userMapper,
         ILoginRepository loginRepository
         )
         {
-            _userMapper = userMapper;
             _loginRepository = loginRepository;
-        }      
+        }
 
-        public UserViewModel LoginAsync(CredentialsViewModel credentials)
+        public UserEntity LoginAsync(CredentialsViewModel credentials)
         {
-            var user = _loginRepository.LoginAsync(credentials.UserName, credentials.Password);
-            if(user != null)
-                return _userMapper.Encode(user);
+            UserEntity user = null;
+            if(credentials != null && credentials.UserName != null && credentials.Password != null) 
+                user = _loginRepository.LoginAsync(credentials.UserName, credentials.Password);
 
-            return null;
-        }        
+            return user;
+        }
 
-        public UserViewModel GetUserInfo(int userid)
+        public UserEntity GetUserInfo(int userid)
         {
-            var user = _loginRepository.GetUserInfo(userid);
-            return _userMapper.Encode(user);
+           return _loginRepository.GetUserInfo(userid);
         }
     }
 }

@@ -6,6 +6,6 @@ namespace Jewellery.Store.Services
     {
         PriceCalculatorResponse CalculatePrice(PriceRequest request);
 
-        DiscountViewModel GetDiscount(long userId);
+        DiscountViewModel GetDiscount(long userType);
     }
 }
