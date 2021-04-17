@@ -12,6 +12,7 @@ import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 import htmlToPdfmake from 'html-to-pdfmake';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pricecalculator',
@@ -31,22 +32,28 @@ export class PricecalculatorComponent implements OnInit {
   constructor(private modalService:NgbModal,
     private _localStorageService:LocalStorageService,
     private _loginService:LoginService,
-    private _calculatorService:CalculatorService) {}
+    private _calculatorService:CalculatorService,
+    private router: Router,) {}
 
   ngOnInit(): void {
     this.priceRequest = new PriceRequest();
     this.priceResult = new PriceResult();
     
     var user = JSON.parse(this._localStorageService.getItem(this.localStorageUserKey));
-    console.log('from localstorage' ,user);    
-    this._loginService.getUserInfo(user.id).subscribe((data: any) => {
-      this.priceRequest.UserType = data.userTypeId;
-      this.userTypeDescription = data.userType.type;
-      this.discountApplicable = data.userTypeId === 2;
-      if(this.discountApplicable){
-        this.priceRequest.Discount = data.discount.discount;
-      }
-    });    
+    console.log('from localstorage' ,user);
+    if(user){
+      this._loginService.getUserInfo(user.id).subscribe((data: any) => {
+        this.priceRequest.UserType = data.userTypeId;
+        this.userTypeDescription = data.userType.type;
+        this.discountApplicable = data.userTypeId === 2;
+        if(this.discountApplicable){
+          this.priceRequest.Discount = data.discount.discount;
+        }
+      });
+    }
+    else{
+      this.router.navigate(['/login']);
+    }
   }
   triggerModal(content) {
     this.modalService.open(content, { centered: true });

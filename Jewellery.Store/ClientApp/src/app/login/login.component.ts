@@ -1,7 +1,7 @@
 import { LoginService } from './../services/login/login.service';
 import { Component, OnInit } from '@angular/core';
 import { CredentialsRequest } from '../models/CredentialsRequest';
-import { Router, ActivatedRoute } from '@angular/router'; 
+import { Router } from '@angular/router'; 
 import { LocalStorageService } from '../services/local-storage/local-storage.service';
 
 @Component({
@@ -15,8 +15,7 @@ export class LoginComponent implements OnInit {
   localStorageUserKey="user";
   hasValidationErrors:boolean;
   hasRequiredErrors: boolean;
-  constructor(private _localStorageService: LocalStorageService,private router: Router, private route: ActivatedRoute,
-    private _loginService:LoginService) {
+  constructor(private _localStorageService: LocalStorageService,private router: Router, private _loginService:LoginService) {
     this.Credential = new CredentialsRequest();
    }
 
