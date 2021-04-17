@@ -52,3 +52,13 @@ dotnet run
   - Privileged user (username : user2 , password : password)
 - Normal user (username : user1 , password : password )
 
+## Screenshots
+
+- login page
+![alt text](https://github.com/nithinvelluva/jewellery.store/blob/master/Jewellery.Store/Screenshots/login.jpeg)
+
+- Estimation screen (Normal User)
+  ![alt text](https://github.com/nithinvelluva/jewellery.store/blob/master/Jewellery.Store/Screenshots/price%20estimation%20NormalUser.jpeg)  
+
+- Estimation screen (Privileged User)
+  ![alt text](https://github.com/nithinvelluva/jewellery.store/blob/master/Jewellery.Store/Screenshots/price%20estimation%20Privileged%20User.jpeg)
