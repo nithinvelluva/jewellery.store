@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Jewellery.Store.Services;
-using Microsoft.AspNetCore.Http;
+﻿using Jewellery.Store.Services;
+using Jewellery.Store.ViewModels.Mapper;
+using Jewellery.Store.ViewModels.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Jewellery.Store.Controllers
@@ -13,44 +10,29 @@ namespace Jewellery.Store.Controllers
     public class LoginController : ControllerBase
     {
         private readonly ILoginService _loginService;
-        public LoginController(ILoginService loginService)
+        private readonly IUserMapper _userMapper;
+        public LoginController(ILoginService loginService, IUserMapper userMapper)
         {
             _loginService = loginService;
-        }       
+            _userMapper = userMapper;
+        }
 
         // GET: api/Login/5
         [HttpGet("{id}", Name = "Get")]
-        public IActionResult Get(int id)
+        public UserViewModel Get(int id)
         {
-            var result = _loginService.GetUserInfo(id);
-            return new JsonResult(result);
-        }
-
-        // GET: api/Login
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
+            var user = _loginService.GetUserInfo(id);
+            var result = _userMapper.Encode(user);
+            return result;
         }
 
         // POST: api/Login
         [HttpPost]
-        public IActionResult Post(CredentialsViewModel credentials)
+        public UserViewModel Post(CredentialsViewModel credentials)
         {
-            var result = _loginService.LoginAsync(credentials);
-            return new JsonResult(result);
-        }
-
-        // PUT: api/Login/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            var user = _loginService.LoginAsync(credentials);
+            var result = _userMapper.Encode(user);
+            return result;
         }
     }
 }

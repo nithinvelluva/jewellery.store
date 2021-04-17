@@ -14,19 +14,12 @@ namespace Jewellery.Store.Controllers
             _priceCalculatorService = priceCalculatorService;
         }
 
-        // GET: api/PriceCalculator/5
-        [HttpGet]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
         // POST: api/PriceCalculator
         [HttpPost]
-        public IActionResult Post(PriceRequest request)
+        public PriceCalculatorResponse Post(PriceRequest request)
         {
             var result = _priceCalculatorService.CalculatePrice(request);
-            return new JsonResult(result);
+            return result;
         }
     }
 }
