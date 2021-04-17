@@ -12,6 +12,7 @@ namespace Jewellery.Store.ViewModels.Mapper
         }
 
         public override UserViewModel Encode(UserEntity data) =>
+            data != null ?
         new UserViewModel
         {
             Id = data.id,
@@ -30,7 +31,7 @@ namespace Jewellery.Store.ViewModels.Mapper
                 Id = data?.UserType?.Discount.id ?? 0,
                 Discount = data?.UserType?.Discount?.discount
             }
-        };
+        } : null;
     }
 
     public interface IUserMapper : IMapper<UserEntity, UserViewModel> { }
