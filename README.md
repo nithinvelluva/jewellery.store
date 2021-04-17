@@ -62,3 +62,9 @@ dotnet run
 
 - Estimation screen (Privileged User)
   ![alt text](https://github.com/nithinvelluva/jewellery.store/blob/master/Jewellery.Store/Screenshots/price%20estimation%20Privileged%20User.jpeg)
+  
+  - Estimation result Popup
+  ![alt text](https://github.com/nithinvelluva/jewellery.store/blob/master/Jewellery.Store/Screenshots/Web%20capture_17-4-2021_123944_localhost.jpeg)
+  
+  - Estimation result PDF
+  ![alt text](https://github.com/nithinvelluva/jewellery.store/blob/master/Jewellery.Store/Screenshots/print%20pdf%202.png)
