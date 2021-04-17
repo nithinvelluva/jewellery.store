@@ -4,6 +4,6 @@ namespace Jewellery.Store.DAL.Repository
 {
     public interface IPriceCalculatorRepository : IRepository<DiscountEntity>
     {
-        long? GetDiscount(long userid);
+        long? GetDiscount(long userType);
     }
 }
