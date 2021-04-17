@@ -46,3 +46,9 @@ then
 cd ..\JewelleryStore\Jewellery.Store
 dotnet run
 ```
+
+## User Credentials
+
+  - Privileged user (username : user2 , password : password)
+- Normal user (username : user1 , password : password )
+
